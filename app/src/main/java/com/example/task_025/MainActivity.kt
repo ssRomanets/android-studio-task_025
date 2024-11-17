@@ -39,23 +39,27 @@ class MainActivity : AppCompatActivity() {
             val productWeight = productWeightET.text.toString()
             val productPrice = productPriceET.text.toString()
 
-            db.addProduct(productName, productWeight, productPrice)
+            if (productName != "" && productWeight != "" && productPrice != "")
+            {
+                db.addProduct(productName, productWeight, productPrice)
 
-            val cursor = db.getInfo()
-            if (cursor != null && cursor.moveToLast()) {
-                cursor.moveToLast()
-                val productName = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_NAME))
-                val productWeight = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_WEIGHT)).toDouble()
-                val productPrice = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_PRICE)).toInt()
+                val cursor = db.getInfo()
+                if (cursor != null && cursor.moveToLast()) {
+                    cursor.moveToLast()
+                    val productName = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_NAME))
+                    val productWeight = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_WEIGHT)).toDouble()
+                    val productPrice = cursor.getString(cursor.getColumnIndex(DBHelper.KEY_PRICE)).toInt()
 
-                val product = Product(productName, productWeight, productPrice)
-                products.add(product)
+                    val product = Product(productName, productWeight, productPrice)
+                    products.add(product)
 
-                val listAdapter = ProductListAdapter(this@MainActivity, products)
-                listViewLV.adapter = listAdapter
-                listAdapter.notifyDataSetChanged()
+                    val listAdapter = ProductListAdapter(this@MainActivity, products)
+                    listViewLV.adapter = listAdapter
+                    listAdapter.notifyDataSetChanged()
+                }
+                clearEditFields()
             }
-            clearEditFields()
+
         }
     }
 
