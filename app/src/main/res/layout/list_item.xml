@@ -11,6 +11,18 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/productIdTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:layout_weight="1"
+            android:padding="10sp"
+            android:hint="Id  продукта"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
             android:id="@+id/productNameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,7 +32,13 @@
             android:hint="название"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/productWeightTV"
@@ -32,7 +50,7 @@
             android:text="вес"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/productPriceTV"
@@ -44,7 +62,7 @@
             android:text="цена"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </LinearLayout>

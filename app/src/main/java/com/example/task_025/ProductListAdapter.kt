@@ -16,10 +16,12 @@ class ProductListAdapter(private val context: Context, productList: MutableList<
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
         }
+        val productIdText = view?.findViewById<TextView>(R.id.productIdTV)
         val productNameText = view?.findViewById<TextView>(R.id.productNameTV)
         val productWeightText = view?.findViewById<TextView>(R.id.productWeightTV)
         val productPriceText = view?.findViewById<TextView>(R.id.productPriceTV)
-        productNameText?.text = "${product?.productName}"
+        productIdText?.text = "Id: ${product?.productId}"
+        productNameText?.text = "Name: ${product?.productName}"
         productWeightText?.text = "Weight: ${product?.productWeight}"
         productPriceText?.text = "Price: ${product?.productPrice}"
 
